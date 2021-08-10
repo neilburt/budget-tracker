@@ -2,7 +2,7 @@
   
 ## Description  
   
-This is a web app that utilizes MongoDB, Mongoose, IndexedDB and several other Node.js packages to deliver an interactive budget-tracking experience.  
+This is a web app that utilizes IndexedDB, MongoDB, Mongoose, and several other Node.js packages to deliver an interactive budget-tracking experience.  
   
 ## Table of Contents  
 - ### [Installation](#installation)
@@ -19,7 +19,7 @@ No installation necessary. Just visit the link to the deployed app on Heroku in 
   
 The user can create as many additions or subtractions to their funds as they need to in a day. Once they've entered at least one transaction, the app will track their total funds over time complete with a graph. The best part is the user doesn't even need an active internet connection to interact with the app and keep track of their funds.
   
-Check out the [deployed app](https://afternoon-spire-63323.herokuapp.com/) at Heroku.  
+Check out the [deployed app](https://frozen-waters-16679.herokuapp.com/) at Heroku.  
   
 ## Screenshots  
 ![screenshot of Budget Tracker landing page](./public/images/screenshot.jpg)  
