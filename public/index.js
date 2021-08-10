@@ -10,7 +10,7 @@ if ('serviceWorker' in navigator) {
 let transactions = [];
 let myChart;
 
-fetch("/api/transaction")
+fetch('/api/transaction')
   .then(response => {
     return response.json();
   })
@@ -27,16 +27,16 @@ function populateTotal() {
     return total + parseInt(t.value);
   }, 0);
 
-  let totalEl = document.querySelector("#total");
+  let totalEl = document.querySelector('#total');
   totalEl.textContent = total;
 }
 
 function populateTable() {
-  let tbody = document.querySelector("#tbody");
-  tbody.innerHTML = "";
+  let tbody = document.querySelector('#tbody');
+  tbody.innerHTML = '';
 
   transactions.forEach(transaction => {
-    let tr = document.createElement("tr");
+    let tr = document.createElement('tr');
     tr.innerHTML = `
       <td>${transaction.name}</td>
       <td>${transaction.value}</td>
@@ -68,7 +68,7 @@ function populateChart() {
     myChart.destroy();
   }
 
-  let ctx = document.getElementById("myChart").getContext("2d");
+  let ctx = document.getElementById('myChart').getContext('2d');
 
   myChart = new Chart(ctx, {
     type: 'line',
@@ -85,12 +85,12 @@ function populateChart() {
 }
 
 function sendTransaction(isAdding) {
-  let nameEl = document.querySelector("#t-name");
-  let amountEl = document.querySelector("#t-amount");
-  let errorEl = document.querySelector(".form .error");
+  let nameEl = document.querySelector('#t-name');
+  let amountEl = document.querySelector('#t-amount');
+  let errorEl = document.querySelector('.form .error');
 
   // validate form
-  if (nameEl.value === "" || amountEl.value === "") {
+  if (nameEl.value === '' || amountEl.value === '') {
     errorEl.textContent = "Missing Information";
     return;
   }
@@ -119,12 +119,12 @@ function sendTransaction(isAdding) {
   populateTotal();
   
   // also send to server
-  fetch("/api/transaction", {
-    method: "POST",
+  fetch('/api/transaction', {
+    method: 'POST',
     body: JSON.stringify(transaction),
     headers: {
-      Accept: "application/json, text/plain, */*",
-      "Content-Type": "application/json"
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': 'application/json'
     }
   })
   .then(response => {    
@@ -150,10 +150,10 @@ function sendTransaction(isAdding) {
   });
 }
 
-document.querySelector("#add-btn").onclick = function() {
+document.querySelector('#add-btn').onclick = function() {
   sendTransaction(true);
 };
 
-document.querySelector("#sub-btn").onclick = function() {
+document.querySelector('#sub-btn').onclick = function() {
   sendTransaction(false);
 };

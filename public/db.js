@@ -12,7 +12,7 @@ const request = indexedDB.open('budget', 1);
 request.onupgradeneeded = ({ target }) => {
   let db = target.result;
   db.createObjectStore('pending', { autoIncrement: true });
-};
+}
 
 request.onsuccess = ({ target }) => {
   db = target.result;
@@ -20,11 +20,11 @@ request.onsuccess = ({ target }) => {
   if (navigator.onLine) {
     checkDatabase();
   }
-};
+}
 
 request.onerror = function(event) {
   console.log("Aw nuts! " + event.target.errorCode);
-};
+}
 
 function saveRecord(record) {
   const transaction = db.transaction(['pending'], 'readwrite');
@@ -54,9 +54,9 @@ function checkDatabase() {
         const transaction = db.transaction(['pending'], 'readwrite');
         const store = transaction.objectStore('pending');
         store.clear();
-      });
+      })
     }
-  };
+  }
 }
 
 window.addEventListener('online', checkDatabase);
