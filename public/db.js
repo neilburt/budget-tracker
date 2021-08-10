@@ -51,8 +51,8 @@ function checkDatabase() {
         return response.json();
       })
       .then(() => {
-        const transaction = db.transaction(['<object store name here>'], 'readwrite');
-        const store = transaction.objectStore('<object store name here>');
+        const transaction = db.transaction(['pending'], 'readwrite');
+        const store = transaction.objectStore('pending');
         store.clear();
       });
     }
